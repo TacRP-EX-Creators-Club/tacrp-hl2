@@ -1,19 +1,19 @@
 SWEP.Base = "tacrp_base"
-SWEP.Spawnable = false
+SWEP.Spawnable = true
 
 AddCSLuaFile()
 
 // names and stuff
 SWEP.PrintName = "AR2 OSIPR"
-SWEP.Category = "Tactical RP"
+SWEP.Category = "Tactical RP (Bonus)"
 
-SWEP.SubCatTier = "1Elite"
+SWEP.SubCatTier = "0Exotic"
 SWEP.SubCatType = "4Assault Rifle"
 
-SWEP.Description = "Dark matter energy rifle with low recoil and total armor penetration but individual shots are fairly weak. \nUses a laser dot in place of sights and is incompatible with most attachments."
+SWEP.Description = "An alien assault rifle that shoots dark matter projectiles. Features an additional trigger that fires a large ball of energy."
 
 SWEP.Trivia_Caliber = "Dark Matter"
-SWEP.Trivia_Manufacturer = "Combine Union"
+SWEP.Trivia_Manufacturer = "Universal Union"
 SWEP.Trivia_Year = "Unknown"
 
 SWEP.Faction = TacRP.FACTION_NEUTRAL
@@ -22,8 +22,8 @@ Model & Textures: Juniez
 Sounds: Half-Life 2: MMod
 ]]
 
-SWEP.ViewModel = "models/weapons/tacint_extras/v_irifle.mdl"
-SWEP.WorldModel = "models/weapons/tacint_extras/w_irifle.mdl"
+SWEP.ViewModel = "models/weapons/tacint_shark/v_irifle.mdl"
+SWEP.WorldModel = "models/weapons/tacint_shark/w_irifle.mdl"
 
 SWEP.Slot = 2
 SWEP.SlotAlt = 3
@@ -33,7 +33,7 @@ SWEP.BalanceStats = {
         Damage_Max = 28,
         Damage_Min = 22,
 
-        ClipSize = 75,
+        ClipSize = 30,
 
         MoveSpeedMult = 0.75,
         ShootingSpeedMult = 0.5,
@@ -49,7 +49,7 @@ SWEP.BalanceStats = {
         Damage_Min = 12,
         Range_Min = 750,
         Range_Max = 3000,
-        ClipSize = 75,
+        ClipSize = 30,
 
         BodyDamageMultipliers = {
             [HITGROUP_HEAD] = 2,
@@ -70,24 +70,6 @@ SWEP.BalanceStats = {
         SightedSpeedMult = 0.5,
         ReloadSpeedMult = 0.4,
     },
-    [TacRP.BALANCE_PVE] = {
-        Damage_Max = 19,
-        Damage_Min = 14,
-
-        ClipSize = 100,
-
-        MoveSpeedMult = 0.75,
-        ShootingSpeedMult = 0.5,
-        SightedSpeedMult = 0.75,
-        MeleeSpeedMult = 1,
-        ReloadSpeedMult = 1,
-    },
-    [TacRP.BALANCE_OLDSCHOOL] = {
-        Description = "Balanced light machine gun that can put down some serious firepower.",
-        ClipSize = 75,
-        RecoilSpreadPenalty = 0.0013,
-        ReloadTimeMult = 1.1
-    }
 }
 
 SWEP.TTTReplace = TacRP.TTTReplacePreset.MachineGun
@@ -109,7 +91,8 @@ SWEP.LaserQCAttachmentVM = 1
 SWEP.LaserQCAttachmentWM = 1
 SWEP.LaserAlwaysAccurate = false
 SWEP.CanToggle = false
-SWEP.TacticalName = "Laser"
+SWEP.TacticalName = "hint.tac.laser"
+SWEP.LaserColor = Color(25, 100, 255, 175)
 
 // "ballistics"
 
@@ -140,7 +123,8 @@ SWEP.RecoilFirstShotMult = 2
 
 SWEP.RecoilVisualKick = 1
 
-SWEP.RecoilKick = 5
+SWEP.RecoilKick = 1.25
+SWEP.RecoilStability = 1
 
 SWEP.HipFireSpreadPenalty = 0.025
 SWEP.RecoilSpreadPenalty = 0.0009
@@ -175,7 +159,7 @@ SWEP.GestureShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2
 SWEP.GestureReload = ACT_HL2MP_GESTURE_RELOAD_SMG1
 
 SWEP.PassiveAng = Angle(0, 0, 0)
-SWEP.PassivePos = Vector(-1, -2, -4.25)
+SWEP.PassivePos = Vector(1, 2, -4.25)
 
 SWEP.BlindFireAng = Angle(0, 5, 0)
 SWEP.BlindFirePos = Vector(0, -4, -3)
@@ -231,7 +215,7 @@ SWEP.QCA_Muzzle = 1
 // ditto for shell
 SWEP.QCA_Eject = 2
 
-SWEP.MuzzleEffect = "muzzleflash_minimi"
+SWEP.MuzzleEffect = "muzzleflash_pistol"
 SWEP.EjectEffect = 0
 
 // anims
@@ -253,34 +237,10 @@ SWEP.DeployTimeMult = 1.25
 
 SWEP.Attachments = {
     [1] = {
-        PrintName = "Optic",
-        Category = "optic_irifle",
-        AttachSound = "TacRP/weapons/optic_on.wav",
-        DetachSound = "TacRP/weapons/optic_off.wav",
-    },
-    [2] = {
-        PrintName = "Accessory",
-        Category = {"acc", "acc_duffle", "acc_sling"},
-        AttachSound = "TacRP/weapons/flashlight_on.wav",
-        DetachSound = "TacRP/weapons/flashlight_off.wav",
-    },
-    [5] = {
         PrintName = "Perk",
         Category = {"perk", "perk_melee", "perk_shooting", "perk_reload"},
         AttachSound = "tacrp/weapons/flashlight_on.wav",
         DetachSound = "tacrp/weapons/flashlight_off.wav",
-    },
-    [3] = {
-        PrintName = "Bolt",
-        Category = {"bolt_automatic"},
-        AttachSound = "TacRP/weapons/flashlight_on.wav",
-        DetachSound = "TacRP/weapons/flashlight_off.wav",
-    },
-    [4] = {
-        PrintName = "Trigger",
-        Category = {"trigger_auto"},
-        AttachSound = "TacRP/weapons/flashlight_on.wav",
-        DetachSound = "TacRP/weapons/flashlight_off.wav",
     },
 }
 
